@@ -1,0 +1,10 @@
+services:
+  unblock-netease-music:
+    image: pan93412/unblock-netease-music-enhanced:latest
+    container_name: unblock-netease-music
+    environment:
+      NODE_ENV: production
+    command: [ "-o", "kugou", "kuwo" ]
+    ports:
+      - 80:8080
+    restart: always

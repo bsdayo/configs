@@ -1,0 +1,59 @@
+services:
+  yukichan-r:
+    image: bsdayo/yukichan-r:4.0.0-beta.2
+    container_name: ykr
+    volumes:
+      - ./ykr:/data
+    environment:
+      "Database:Host": ykr-pg
+      "Adapters:OneBot:Bots:0:Endpoint": ws://ykr-gocq-1:8080
+      "Adapters:OneBot:Bots:1:Endpoint": ws://ykr-gocq-2:8080
+      "Adapters:OneBot:Bots:2:Endpoint": ws://ykr-gocq-3:8080
+    depends_on:
+      - postgres
+      - go-cqhttp-1
+      - go-cqhttp-2
+      - go-cqhttp-3
+
+  # ===================
+  # PostgreSQL Database
+  # ===================
+
+  postgres:
+    image: postgres:15
+    container_name: ykr-pg
+    volumes:
+      - ./pg:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+
+  # =========
+  # go-cqhttp
+  # =========
+
+  go-cqhttp-1:
+    image: silicer/go-cqhttp:latest
+    container_name: ykr-gocq-1
+    command: [ -update-protocol, -faststart ]
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./gocq-1:/data
+
+  go-cqhttp-2:
+    image: silicer/go-cqhttp:latest
+    container_name: ykr-gocq-2
+    command: [ -update-protocol, -faststart ]
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./gocq-2:/data
+
+  go-cqhttp-3:
+    image: silicer/go-cqhttp:latest
+    container_name: ykr-gocq-3
+    command: [ -update-protocol, -faststart ]
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./gocq-3:/data
