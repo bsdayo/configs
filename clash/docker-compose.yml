@@ -1,12 +1,10 @@
 services:
   clash:
-    image: metacubex/clash-meta:latest
+    image: dreamacro/clash-premium:latest
     container_name: clash
     volumes:
       - ./config.yaml:/root/.config/clash/config.yaml:ro
-      # For now, we need to manually clone MetaCubeX/Yacd-meta@gh-pages to /ui directory
-      # Official Docker image tracking at https://github.com/MetaCubeX/Yacd-meta/issues/52
-      - ./ui:/ui
+      # - ./ui:/ui
     network_mode: host
     devices:
       - /dev/net/tun
