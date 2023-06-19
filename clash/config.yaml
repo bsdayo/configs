@@ -1,8 +1,6 @@
 mixed-port: 7890
 external-controller: 0.0.0.0:9090
-
-# external-ui: /ui
-
+external-ui: /ui
 allow-lan: false
 mode: Rule
 log-level: info
@@ -33,7 +31,7 @@ dns:
 
 tun:
   enable: true
-  stack: gvisor
+  stack: system
   dns-hijack:
     - any:53
   auto-route: true

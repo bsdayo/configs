@@ -1,10 +1,10 @@
 services:
   clash:
-    image: dreamacro/clash-premium:latest
+    image: metacubex/clash-meta:latest
     container_name: clash
     volumes:
       - ./config.yaml:/root/.config/clash/config.yaml:ro
-      # - ./ui:/ui
+      - ./ui:/ui
     network_mode: host
     devices:
       - /dev/net/tun
