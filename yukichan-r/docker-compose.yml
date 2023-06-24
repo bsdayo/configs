@@ -4,6 +4,7 @@ services:
     container_name: ykr
     volumes:
       - ./ykr:/data
+      - /etc/localtime:/etc/localtime:ro
     environment:
       "Database:Host": ykr-pg
       "Adapters:OneBot:Bots:0:Endpoint": ws://ykr-gocq-1:8080
