@@ -4,7 +4,10 @@ services:
     container_name: unblock-netease-music
     environment:
       NODE_ENV: production
-    command: [ "-o", "kugou", "kuwo" ]
+      ENABLE_FLAC: true
+      ENABLE_LOCAL_VIP: svip
+      FOLLOW_SOURCE_ORDER: true
+    command: ['-s', '-o', 'ytdlp', 'kugou']
     ports:
       - 80:8080
     restart: always
