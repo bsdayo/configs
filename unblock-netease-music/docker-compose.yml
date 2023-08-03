@@ -9,5 +9,6 @@ services:
       FOLLOW_SOURCE_ORDER: true
     command: ['-s', '-o', 'ytdlp', 'kugou']
     ports:
-      - 8088:8080
+      - 8880:8080
+      - 8881:8081
     restart: always
