@@ -6,7 +6,7 @@ services:
     volumes:
       - ./config:/config/rclone
       - ./data:/data
-      - /mnt:/mnt
+      - /mnt/dav:/mnt/dav:shared
       - /etc/passwd:/etc/passwd:ro # For mounting
       - /etc/group:/etc/group:ro # For mounting
     devices:
