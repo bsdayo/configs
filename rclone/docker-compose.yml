@@ -2,6 +2,7 @@ services:
   rclone:
     image: rclone/rclone:latest
     container_name: rclone
+    user: ${UID}:${GID}
     network_mode: host
     volumes:
       - ./config:/config/rclone
