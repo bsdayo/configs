@@ -15,4 +15,4 @@ services:
       - SYS_ADMIN
     security_opt:
       - apparmor:unconfined
-    command: 'mount dav: /mnt/dav'
+    command: 'mount --allow-non-empty dav: /mnt/dav'
