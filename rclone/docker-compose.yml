@@ -16,3 +16,4 @@ services:
     security_opt:
       - apparmor:unconfined
     command: 'mount --allow-non-empty --allow-other dav: /mnt/dav'
+    restart: always
