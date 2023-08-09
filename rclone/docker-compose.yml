@@ -2,7 +2,6 @@ services:
   rclone:
     image: rclone/rclone:latest
     container_name: rclone
-    user: $DOCKER_USER
     network_mode: host
     volumes:
       - ./config:/config/rclone
