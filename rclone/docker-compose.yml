@@ -1,0 +1,17 @@
+services:
+  rclone:
+    image: rclone/rclone:latest
+    container_name: rclone
+    volumes:
+      - ./config:/config/rclone
+      - ./data:/data
+      - /mnt:/mnt
+      - /etc/passwd:/etc/passwd:ro # For mounting
+      - /etc/group:/etc/group:ro # For mounting
+    devices:
+      - /dev/fuse
+    cap_add:
+      - SYS_ADMIN
+    security_opt:
+      - apparmor:unconfined
+    command: mount dav:/ /mnt/dav
