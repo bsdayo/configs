@@ -15,5 +15,5 @@ services:
       - SYS_ADMIN
     security_opt:
       - apparmor:unconfined
-    command: 'mount --allow-non-empty --allow-other dav: /mnt/dav'
+    command: 'mount --allow-non-empty --allow-other --vfs-cache-mode writes dav: /mnt/dav'
     restart: always
