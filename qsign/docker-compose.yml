@@ -1,8 +1,10 @@
 services:
   qsign:
-    image: ghcr.io/fuqiuluo/unidbg-fetch-qsign:master
+    image: xzhouqd/qsign:8.9.63
     container_name: qsign
     ports:
       - 4444:8080
-    pull_policy: always
+    environment:
+      ANDROID_ID: ${ANDROID_ID}
+      COUNT: 1
     restart: always
