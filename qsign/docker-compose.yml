@@ -1,0 +1,8 @@
+services:
+  qsign:
+    image: ghcr.io/fuqiuluo/unidbg-fetch-qsign:master
+    container_name: qsign
+    ports:
+      - 4444:8080
+    pull_policy: always
+    restart: always
