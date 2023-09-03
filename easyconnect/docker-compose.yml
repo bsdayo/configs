@@ -16,4 +16,4 @@ services:
       - 5901:5901
       - 1080:1080
       - 8888:8888
-    restart: unless-stoppped
+    restart: unless-stopped
