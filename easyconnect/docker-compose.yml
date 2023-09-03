@@ -1,0 +1,19 @@
+services:
+  easyconnect:
+    image: hagb/docker-easyconnect:7.6.3
+    container_name: easyconnect
+    devices:
+      - /dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    environment:
+      PASSWORD: ${EASYCONNECT_VNC_PASSWORD}
+      DISABLE_PKG_VERSION_XML: 1
+      URLWIN: 1
+    volumes:
+      - ./data:/root
+    ports:
+      - 5901:5901
+      - 1080:1080
+      - 8888:8888
+    restart: unless-stoppped
