@@ -16,4 +16,4 @@ services:
     security_opt:
       - apparmor:unconfined
     command: 'mount --allow-non-empty --allow-other --vfs-cache-mode writes dav: /mnt/dav'
-    restart: always
+    restart: unless-stopped

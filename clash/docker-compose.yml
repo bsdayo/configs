@@ -10,4 +10,4 @@ services:
       - /dev/net/tun
     cap_add:
       - NET_ADMIN
-    restart: always
+    restart: unless-stopped

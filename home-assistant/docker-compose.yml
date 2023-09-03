@@ -5,6 +5,6 @@ services:
     volumes:
       - ./config:/config
       - /etc/localtime:/etc/localtime:ro
-    restart: always
+    restart: unless-stopped
     privileged: true
     network_mode: host

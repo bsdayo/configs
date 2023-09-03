@@ -11,4 +11,4 @@ services:
       PUID: 0
       PGID: 0
       UMASK: 022
-    restart: always
+    restart: unless-stopped

@@ -10,4 +10,4 @@ services:
       # The 8000 port is optional and is only required if you plan to use the Edge compute features with Edge agents.
       # https://docs.portainer.io/start/install-ce/server/docker/linux
       # - 8000:8000
-    restart: always
+    restart: unless-stopped

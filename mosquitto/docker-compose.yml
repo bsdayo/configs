@@ -9,4 +9,4 @@ services:
     ports:
       - 1883:1883     # MQTT
       # - 9001:9001   # WebSocket
-    restart: always
+    restart: unless-stopped
