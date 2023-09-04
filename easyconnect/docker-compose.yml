@@ -12,6 +12,7 @@ services:
       URLWIN: 1
     volumes:
       - ./data:/root
+      - /etc/localtime:/etc/localtime:ro
     ports:
       - 127.0.0.1:5901:5901
       - 127.0.0.1:1080:1080
