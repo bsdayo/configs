@@ -8,5 +8,6 @@ services:
     ports:
       - 5984:5984
     volumes:
-      - ./couchdb:/opt/couchdb/data
+      - ./couchdb/data:/opt/couchdb/data
+      - ./couchdb/etc:/opt/couchdb/etc/local.d
     restart: unless-stopped
