@@ -3,8 +3,8 @@ services:
     image: couchdb:latest
     container_name: obsidian-livesync-db
     environment:
-      COUCHDB_USER: ${COUCHDB_USER}
-      COUCHDB_PASSWORD: ${COUCHDB_PASSWORD}
+      COUCHDB_USER: ${OBSIDIAN_LIVESYNC_USER}
+      COUCHDB_PASSWORD: ${OBSIDIAN_LIVESYNC_PASSWORD}
     ports:
       - 5984:5984
     volumes:
