@@ -4,10 +4,16 @@ services:
     container_name: clash
     volumes:
       - ./config.yaml:/root/.config/clash/config.yaml:ro
-      - ./ui:/ui
     network_mode: host
     devices:
       - /dev/net/tun
     cap_add:
       - NET_ADMIN
+    restart: unless-stopped
+
+  yacd:
+    image: asnil/yacd-meta:latest
+    container_name: yacd
+    ports:
+      - 9099:80
     restart: unless-stopped
