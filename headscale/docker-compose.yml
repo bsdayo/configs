@@ -6,6 +6,7 @@ services:
     ports:
       - 8080:8080
       - 9090:9090
+      - 3478:3478
     volumes:
       - ./config:/etc/headscale/
     restart: unless-stopped
