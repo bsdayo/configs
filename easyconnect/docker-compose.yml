@@ -1,6 +1,6 @@
 services:
   easyconnect:
-    image: hagb/docker-easyconnect:7.6.3
+    image: hagb/docker-easyconnect:7.6.7
     container_name: easyconnect
     devices:
       - /dev/net/tun
