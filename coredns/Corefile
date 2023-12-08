@@ -1,0 +1,8 @@
+.:53 {
+    hosts {
+        fallthrough
+    }
+    forward . /etc/resolv.conf
+    log
+    errors
+}
