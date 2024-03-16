@@ -3,7 +3,7 @@ services:
     image: metacubex/mihomo:latest
     container_name: clash
     volumes:
-      - ./config.yaml:/root/.config/clash/config.yaml:ro
+      - ./config.yaml:/root/.config/mihomo/config.yaml:ro
     network_mode: host
     devices:
       - /dev/net/tun
