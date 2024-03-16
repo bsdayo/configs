@@ -1,6 +1,6 @@
 services:
   clash:
-    image: metacubex/clash-meta:latest
+    image: metacubex/mihomo:latest
     container_name: clash
     volumes:
       - ./config.yaml:/root/.config/clash/config.yaml:ro
