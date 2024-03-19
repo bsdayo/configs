@@ -12,7 +12,6 @@ services:
     volumes:
       - ./config:/config
       - ./downloads:/downloads
-      - /media:/media
     ports:
       - 6800:6800
       - 6888:6888
