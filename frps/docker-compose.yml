@@ -1,0 +1,8 @@
+services:
+  frps:
+    image: snowdreamtech/frps
+    container_name: frps
+    network_mode: host
+    volumes:
+      - ./frps.toml:/etc/frp/frps.toml
+    restart: always
