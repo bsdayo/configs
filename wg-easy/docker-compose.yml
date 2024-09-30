@@ -1,0 +1,24 @@
+services:
+  wg-easy:
+    image: ghcr.io/wg-easy/wg-easy:latest
+    container_name: wg-easy
+    volumes:
+      - ./data:/etc/wireguard
+    environment:
+      PASSWORD_HASH: $xx$xx$xxxxx # BCrypt 哈希密码
+      WG_HOST: vpn.example.com # 服务器主机
+      WG_PORT: 11451
+      WG_PERSISTENT_KEEPALIVE: 20
+      WG_DEFAULT_ADDRESS: 172.20.0.x
+      WG_ALLOWED_IPS: 172.20.0.0/24
+    ports:
+      - 11451:11451/udp
+    expose:
+      - 51821
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+      - net.ipv4.ip_forward=1
+    restart: unless-stopped
