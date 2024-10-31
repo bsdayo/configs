@@ -2,9 +2,10 @@ services:
   caddy:
     image: caddy:2
     container_name: caddy
-    restart: always
-    network_mode: host
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - ./data:/data
-      - ./config:/config
+    ports:
+      - 8080:80
+      - 8443:443
+    restart: unless-stopped
