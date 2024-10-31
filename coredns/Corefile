@@ -1,8 +1,5 @@
-.:53 {
-    hosts /etc/coredns/hosts {
-        fallthrough
-    }
-    forward . 8.8.8.8 114.114.114.114
+.:5353 {
+    hosts
     log
     errors
 }
