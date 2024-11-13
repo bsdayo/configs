@@ -1,0 +1,8 @@
+<service>
+    <id>sing-box</id>
+    <name>sing-box</name>
+    <description>The universal proxy platform.</description>
+    <executable>sing-box</executable>
+    <arguments>run -c %BASE%\config.json</arguments>
+    <log mode="reset" />
+</service>

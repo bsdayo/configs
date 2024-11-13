@@ -1,2 +1,4 @@
+sing-box/config.json
 sing-box/proxies.json
-sing-box/wireguard.json
+sing-box/internal.json
+*.log
