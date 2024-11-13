@@ -1,0 +1,16 @@
+services:
+  rsshub:
+    image: diygod/rsshub:chromium-bundled
+    container_name: rsshub
+    expose:
+      - 1200
+    environment:
+      NODE_ENV: production
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:1200/healthz']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  # Use redis if there are some bottleneck with caching. Refer to https://github.com/DIYgod/RSSHub/blob/master/docker-compose.yml
