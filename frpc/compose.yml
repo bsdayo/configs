@@ -5,4 +5,4 @@ services:
     network_mode: host
     volumes:
       - ./frpc.toml:/etc/frp/frpc.toml
-    restart: always
+    restart: unless-stopped
