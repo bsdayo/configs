@@ -1,0 +1,26 @@
+receivers:
+  prometheus:
+    config:
+      scrape_configs:
+        - job_name: node-exporter
+          scrape_interval: 5s
+          static_configs:
+            - targets: ["host.docker.internal:9100"]
+
+processors:
+  attributes:
+    actions:
+      - key: node
+        action: insert
+        value: ${env:NODE_NAME}
+
+exporters:
+  otlphttp:
+    endpoint: ${env:TELEMETRY_ENDPOINT}
+
+service:
+  pipelines:
+    metrics:
+      receivers: [prometheus]
+      processors: [attributes]
+      exporters: [otlphttp]

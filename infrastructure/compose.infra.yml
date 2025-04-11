@@ -1,0 +1,23 @@
+services:
+  otelcol:
+    image: otel/opentelemetry-collector-contrib:latest
+    container_name: otelcol
+    volumes:
+      - ./otelcol.yml:/etc/otelcol-contrib/config.yaml
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    environment:
+      NODE_NAME: ${NODE_NAME}
+      TELEMETRY_ENDPOINT: ${TELEMETRY_ENDPOINT}
+    restart: unless-stopped
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node-exporter
+    network_mode: host
+    pid: host
+    volumes:
+      - /:/host:ro,rslave
+    command:
+      - --path.rootfs=/host
+    restart: unless-stopped
