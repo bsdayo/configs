@@ -1,0 +1,20 @@
+[Unit]
+Description=Containerized EasyConnect
+
+[Container]
+Image=docker.io/hagb/docker-easyconnect:7.6.7
+AddCapability=NET_ADMIN
+AddDevice=/dev/net/tun:/dev/net/tun
+Environment=PASSWORD=easyconnect DISABLE_PKG_VERSION_XML=1 URLWIN=1
+PublishPort=127.0.0.1:5901:5901
+PublishPort=127.0.0.1:2080:1080
+PublishPort=127.0.0.1:8888:8888
+PublishPort=127.0.0.1:54530:54530
+Volume=easyconnect:/root
+Volume=/etc/localtime:/etc/localtime:ro
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
