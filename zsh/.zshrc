@@ -9,15 +9,20 @@ export EDITOR="nvim"
 # Completion
 # ==========
 autoload -Uz compinit
-compinit
 
 # Enable menu-style completion selection
 zstyle ':completion:*' menu select
-# Support sudo completions
+# Enable case-insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# Enable sudo completions
 zstyle ':completion::complete:*' gain-privileges 1
 
 completions_dir="$HOME/.zsh/completions"
-source "$completions_dir/pnpm.zsh"
+fpath=($completions_dir $fpath)
+type pnpm > /dev/null && pnpm completion zsh > $completions_dir/_pnpm
+type uv > /dev/null && uv generate-shell-completion zsh > $completions_dir/_uv
+
+rm -f ~/.zcompdump; compinit
 
 
 # ============
