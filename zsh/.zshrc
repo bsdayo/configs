@@ -1,3 +1,10 @@
+# =====================
+# Environment Variables
+# =====================
+export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
+export EDITOR="nvim"
+
+
 # ==========
 # Completion
 # ==========
@@ -38,12 +45,6 @@ setopt INC_APPEND_HISTORY
 # =======
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-# =====
-# Paths
-# =====
-export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 
 
 # =======
