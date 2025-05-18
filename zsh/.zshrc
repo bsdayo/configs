@@ -1,14 +1,15 @@
 # =====================
 # Environment Variables
 # =====================
-export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 export EDITOR="nvim"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 
 # ==========
 # Completion
 # ==========
 autoload -Uz compinit
+rm -f ~/.zcompdump; compinit
 
 # Enable menu-style completion selection
 zstyle ':completion:*' menu select
@@ -17,12 +18,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # Enable sudo completions
 zstyle ':completion::complete:*' gain-privileges 1
 
-completions_dir="$HOME/.zsh/completions"
-fpath=($completions_dir $fpath)
-type pnpm > /dev/null && pnpm completion zsh > $completions_dir/_pnpm
-type uv > /dev/null && uv generate-shell-completion zsh > $completions_dir/_uv
-
-rm -f ~/.zcompdump; compinit
+type pnpm > /dev/null && eval "$(pnpm completion zsh)"
+type uv > /dev/null && eval "$(uv generate-shell-completion zsh)"
 
 
 # ============
@@ -31,8 +28,8 @@ rm -f ~/.zcompdump; compinit
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
 bindkey  "^[[3~"  delete-char
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
 
 
 # =======
@@ -48,15 +45,14 @@ setopt INC_APPEND_HISTORY
 # =======
 # Plugins
 # =======
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 
 # =======
 # Aliases
 # =======
 alias ls="eza -l --group-directories-first"
-alias sc="systemctl --user"
 
 
 # ======
