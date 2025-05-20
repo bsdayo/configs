@@ -3,6 +3,9 @@
 # =====================
 export EDITOR="nvim"
 eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 
 # ==========
@@ -20,6 +23,7 @@ zstyle ':completion::complete:*' gain-privileges 1
 
 type pnpm > /dev/null && eval "$(pnpm completion zsh)"
 type uv > /dev/null && eval "$(uv generate-shell-completion zsh)"
+type rustup > /dev/null && eval "$(rustup completions zsh)"
 
 
 # ============
